@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!-- CDN react dependency -->
+		<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+		<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+	</head>
+
+	<body>
+		<div id="root"></div>
+
+		<!-- Using babel sintax  -->
+		<script type="text/babel">
+			console.log("This is a example from reactjs :D");
+
+			ReactDOM.render(
+				<h1>Hello world React using babel!</h1>,
+				document.getElementById('root')
+			);
+		</script>
+	</body>
+</html>

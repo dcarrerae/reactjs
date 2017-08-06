@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
 
@@ -22,11 +23,24 @@ module.exports = {
 			}
 		]
 	},
+	watch: true, // simula hacer webpack --watch, cuando hago webpack
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
 			compress : {
 				warnings : false
 			}
+		}),
+		new webpack.DefinePlugin({
+		'process.env': {
+			NODE_ENV: JSON.stringify('production')
+			}
+		}),
+		new BrowserSyncPlugin({
+			// browse to http://localhost:3000/ during development,
+			// ./public directory is being served
+			host: 'localhost',
+			port: 3000,
+			server: { baseDir: [''] } // '' indica el directorio raiz, dentro de las comillas ingresar carpeta
 		})
 	]
 }
